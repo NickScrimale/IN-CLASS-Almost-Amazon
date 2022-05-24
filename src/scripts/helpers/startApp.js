@@ -1,3 +1,5 @@
+import { getBooks } from '../../api/bookData';
+import { showBooks } from '../components/pages/books';
 import logoutButton from '../components/buttons/logoutButton';
 import domBuilder from '../components/domBuilder';
 import navBar from '../components/navBar';
@@ -14,6 +16,7 @@ const startApp = () => {
   navigationEvents(); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 
   // TODO: Put all books on the DOM on App load
+  getBooks().then((booksArray) => showBooks(booksArray));
 };
 
 export default startApp;
